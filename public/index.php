@@ -2,9 +2,9 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Cargar variables de entorno
+// Cargar variables de entorno (safeLoad no lanza error si no existe .env)
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
+$dotenv->safeLoad();
 
 // Configurar errores (Whoops)
 if ($_ENV['APP_DEBUG'] === 'true') {
