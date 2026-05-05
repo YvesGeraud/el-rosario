@@ -1,0 +1,291 @@
+/* ═══════════════════════════════════════════════════════
+   BLANCOS EL ROSARIO — Sistema de Diseño
+   Paleta basada en el logo (Azul Cerceta + Blanco)
+═══════════════════════════════════════════════════════ */
+
+:root {
+    --primary:      #2c98a9;
+    --primary-dark: #1a4a52;
+    --primary-light:#e0f5f7;
+    --secondary:    #5a8fbc;
+    --text-dark:    #1e293b;
+    --text-muted:   #64748b;
+    --bg-soft:      #f8fafc;
+    --border:       #e2e8f0;
+    --radius:       14px;
+    --shadow-sm:    0 2px 8px rgba(0,0,0,0.06);
+    --shadow-md:    0 4px 20px rgba(0,0,0,0.1);
+    --transition:   all 0.25s ease;
+}
+
+/* ── Reset & Base ────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--text-dark);
+    background: #fff;
+    font-size: 0.95rem;
+}
+
+/* ── Navbar ──────────────────────────────────────────── */
+.navbar {
+    background: #fff !important;
+    border-bottom: 2px solid var(--primary) !important;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.navbar-brand {
+    color: var(--primary-dark) !important;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.navbar .nav-link {
+    color: #475569 !important;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1rem !important;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.navbar .nav-link:hover {
+    color: var(--primary) !important;
+    background: var(--primary-light);
+}
+
+/* ── Hero Carrusel ───────────────────────────────────── */
+.hero-carousel {
+    border-radius: 0;
+    overflow: hidden;
+    margin: 0 -12px;                 /* sangra hasta los bordes del container */
+}
+
+.hero-slide {
+    position: relative;
+    height: 520px;
+    overflow: hidden;
+}
+
+.hero-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 8s ease;
+}
+
+/* Efecto Ken Burns sutil */
+.carousel-item.active .hero-slide img {
+    transform: scale(1.04);
+}
+
+/* Overlay degradado */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(15, 45, 51, 0.80) 0%,
+        rgba(15, 45, 51, 0.40) 55%,
+        transparent 100%
+    );
+}
+
+/* Caption centrado a la izquierda */
+.hero-caption {
+    position: absolute;
+    top: 50%;
+    left: 60px;
+    transform: translateY(-50%);
+    color: #fff;
+    max-width: 500px;
+}
+
+.hero-caption .badge-cat {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 50px;
+    margin-bottom: 14px;
+}
+
+.hero-caption h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: #fff !important;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.hero-caption p {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-bottom: 28px;
+}
+
+/* Fallback sin imágenes */
+.hero-fallback {
+    height: 520px;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Controles del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: var(--transition);
+}
+.carousel-control-prev { left: 20px; }
+.carousel-control-next { right: 20px; }
+.carousel-control-prev:hover,
+.carousel-control-next:hover { background: rgba(255,255,255,0.3); }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon { width: 1.2rem; height: 1.2rem; }
+
+.carousel-indicators { bottom: 18px; }
+.carousel-indicators button {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.5);
+    transition: var(--transition);
+    margin: 0 4px;
+}
+.carousel-indicators button.active {
+    width: 24px;
+    border-radius: 4px;
+    background: #fff;
+}
+
+/* ── Feature Cards (Home) ────────────────────────────── */
+.feature-card {
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transition);
+    background: #fff;
+}
+.feature-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+.feature-icon {
+    width: 64px; height: 64px;
+    background: var(--primary-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem;
+    color: var(--primary);
+    margin: 0 auto 1.2rem;
+}
+
+/* ── Botones ─────────────────────────────────────────── */
+.btn-primary {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+    border-radius: 50px !important;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.btn-primary:hover {
+    background: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(44,152,169,0.3);
+}
+.btn-outline-primary {
+    color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    border-radius: 50px !important;
+    font-weight: 600;
+}
+.btn-outline-primary:hover {
+    background: var(--primary) !important;
+    color: #fff !important;
+}
+
+/* ── Product Cards ───────────────────────────────────── */
+.product-card {
+    border-radius: var(--radius) !important;
+    border: 1px solid var(--border) !important;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary) !important;
+}
+.product-card img {
+    transition: transform 0.4s ease;
+}
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+/* ── Sidebar Filtros ─────────────────────────────────── */
+.list-group-item {
+    border-radius: 10px !important;
+    margin-bottom: 4px;
+    border: 1px solid transparent !important;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.list-group-item:hover { background: var(--primary-light); }
+.list-group-item.active {
+    background: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(44,152,169,0.25);
+}
+
+/* ── Tipografía ──────────────────────────────────────── */
+h1, h2, h3, h4, h5 { color: var(--primary-dark) !important; }
+h1 { font-weight: 800; }
+h2 { font-weight: 700; }
+
+a { color: var(--primary); text-decoration: none; }
+a:hover { color: var(--primary-dark); }
+
+/* ── Utilidades Bootstrap ────────────────────────────── */
+.bg-primary { background: var(--primary) !important; }
+.text-primary { color: var(--primary) !important; }
+.border-primary { border-color: var(--primary) !important; }
+
+/* ── Footer ──────────────────────────────────────────── */
+footer {
+    background: var(--primary-dark) !important;
+    color: rgba(255,255,255,0.7) !important;
+}
+footer a { color: rgba(255,255,255,0.7); }
+footer a:hover { color: #fff; }

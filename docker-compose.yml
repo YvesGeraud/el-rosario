@@ -1,0 +1,39 @@
+name: "blancos-el-rosario"
+
+services:
+  db:
+    image: mariadb:11.4
+    container_name: "blancos_el_rosario_db"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: blancos_el_rosario
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    command: >
+      --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: [ 'CMD', 'mariadb-admin', 'ping', '-h', '127.0.0.1', '-u', 'user', '-p', 'password' ]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  php:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: "blancos_el_rosario_app"
+    volumes:
+      - .:/var/www/html/blancos
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      - APACHE_DOCUMENT_ROOT=/var/www/html/blancos/public
+
+volumes:
+  db_data:
