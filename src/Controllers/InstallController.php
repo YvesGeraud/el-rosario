@@ -7,7 +7,7 @@ use App\Core\Database;
 class InstallController {
     public function index() {
         try {
-            $db = Database::getInstance()->getConnection();
+            $db = Database::getInstance();
             
             // 1. Leer el esquema
             $schemaPath = __DIR__ . '/../../database/schema.sql';
