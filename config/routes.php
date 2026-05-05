@@ -2,7 +2,6 @@
 
 /** @var \App\Core\Router $router */
 
-$router->get('/instalar', 'InstallController@index');
 
 $router->get('/', 'HomeController@index');
 $router->get('/productos', 'ProductoController@index');
