@@ -15,7 +15,7 @@ INSERT INTO ct_producto (id_ct_categoria, nombre, slug, descripcion, precio_base
 
 -- Insertar Imágenes de prueba (URLs de marcador de posición)
 INSERT INTO dt_imagen_producto (id_ct_producto, ruta, es_principal) VALUES
-(1, 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=300', 1),
-(2, 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&q=80&w=300', 1),
-(3, 'https://images.unsplash.com/photo-1616627561950-9f746e330171?auto=format&fit=crop&q=80&w=300', 1),
-(4, 'https://images.unsplash.com/photo-1505693419173-42b9256a0e6d?auto=format&fit=crop&q=80&w=300', 1);
+(1, 'https://resources.sears.com.mx/medios-plazavip/mkt/64483ff6cd20b_10400pse-siljpg.jpg?auto=format&fit=crop&q=80&w=300', 1),
+(2, 'https://m.media-amazon.com/images/I/71uVKmY3i8L.jpg?auto=format&fit=crop&q=80&w=300', 1),
+(3, 'https://m.media-amazon.com/images/I/51WGh2PadML.jpg?auto=format&fit=crop&q=80&w=300', 1),
+(4, 'https://m.media-amazon.com/images/I/81x5wc4TcFL.jpg?auto=format&fit=crop&q=80&w=300?auto=format&fit=crop&q=80&w=300', 1);
