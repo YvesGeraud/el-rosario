@@ -13,7 +13,7 @@
                 <div class="hero-fallback">
                     <h1 class="display-4 fw-bold mb-3">Blancos El Rosario</h1>
                     <p class="lead mb-4">Calidad y confort para tu hogar desde el primer día.</p>
-                    <a href="/blancos/public/productos" class="btn btn-primary btn-lg px-5">Explorar Catálogo</a>
+                    <a href="<?= URL_BASE ?>/productos" class="btn btn-primary btn-lg px-5">Explorar Catálogo</a>
                 </div>
             </div>
         <?php else: ?>
@@ -28,11 +28,11 @@
                             <h2><?= htmlspecialchars($prod['nombre']) ?></h2>
                             <p>Descubre la calidad y el confort que solo Blancos El Rosario puede ofrecerte.</p>
                             <div class="d-flex gap-3">
-                                <a href="/blancos/public/producto/<?= $prod['slug'] ?>"
+                                <a href="<?= URL_BASE ?>/producto/<?= $prod['slug'] ?>"
                                    class="btn btn-primary px-4">
                                     Ver Detalles
                                 </a>
-                                <a href="/blancos/public/productos" class="btn btn-outline-light px-4">
+                                <a href="<?= URL_BASE ?>/productos" class="btn btn-outline-light px-4">
                                     Ver Catálogo
                                 </a>
                             </div>

@@ -30,7 +30,7 @@ class AdminMensajeController {
      */
     public function read($id) {
         $this->contactoModel->markAsRead($id);
-        header('Location: /blancos/public/admin/mensajes');
+        header('Location: ' . URL_BASE . '/admin/mensajes');
         exit;
     }
 
@@ -39,7 +39,7 @@ class AdminMensajeController {
      */
     public function delete($id) {
         $this->contactoModel->delete($id);
-        header('Location: /blancos/public/admin/mensajes');
+        header('Location: ' . URL_BASE . '/admin/mensajes');
         exit;
     }
 }

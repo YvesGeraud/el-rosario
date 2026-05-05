@@ -1,5 +1,5 @@
 <div class="mb-4">
-    <a href="/blancos/public/admin/categorias" class="text-decoration-none text-muted small">
+    <a href="<?= URL_BASE ?>/admin/categorias" class="text-decoration-none text-muted small">
         <i class="bi bi-arrow-left me-1"></i> Volver al listado
     </a>
     <h1 class="h3 fw-bold text-dark mt-2"><?= $categoria ? 'Editar' : 'Nueva' ?> Categoría</h1>
@@ -9,7 +9,7 @@
     <div class="col-md-8">
         <div class="card border-0 shadow-sm rounded-4">
             <div class="card-body p-4">
-                <form action="/blancos/public/admin/categorias/<?= $categoria ? 'editar/'.$categoria['id_ct_categoria'] : 'crear' ?>" method="POST">
+                <form action="<?= URL_BASE ?>/admin/categorias/<?= $categoria ? 'editar/'.$categoria['id_ct_categoria'] : 'crear' ?>" method="POST">
                     <div class="mb-4">
                         <label for="nombre" class="form-label fw-bold">Nombre de la Categoría</label>
                         <input type="text" class="form-control form-control-lg bg-light border-0" 
@@ -42,7 +42,7 @@
                     <hr class="my-4 opacity-10">
 
                     <div class="d-flex justify-content-end gap-2">
-                        <a href="/blancos/public/admin/categorias" class="btn btn-light rounded-pill px-4">Cancelar</a>
+                        <a href="<?= URL_BASE ?>/admin/categorias" class="btn btn-light rounded-pill px-4">Cancelar</a>
                         <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">
                             <i class="bi bi-save me-2"></i> <?= $categoria ? 'Actualizar' : 'Guardar' ?> Categoría
                         </button>

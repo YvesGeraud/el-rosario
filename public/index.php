@@ -26,9 +26,12 @@ require_once __DIR__ . '/../config/routes.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $method = $_SERVER['REQUEST_METHOD'];
 
-// Ajuste si el proyecto está en una subcarpeta (común en desarrollo local)
-$basePath = '/blancos/public';
-if (strpos($uri, $basePath) === 0) {
+// Detectar la base de la URL (para que funcione en local /blancos/public o en raíz /)
+$basePath = (strpos($_SERVER['REQUEST_URI'], '/blancos/public') === 0) ? '/blancos/public' : '';
+define('URL_BASE', $basePath);
+
+// Ajustar URI para el router
+if ($basePath !== '' && strpos($uri, $basePath) === 0) {
     $uri = substr($uri, strlen($basePath));
 }
 if ($uri === '') $uri = '/';

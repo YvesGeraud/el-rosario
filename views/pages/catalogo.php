@@ -4,12 +4,12 @@
     <div class="col-md-3 mb-4">
         <h4 class="mb-3">Categorías</h4>
         <div class="list-group shadow-sm">
-            <a href="/blancos/public/productos" 
+            <a href="<?= URL_BASE ?>/productos" 
                class="list-group-item list-group-item-action <?= !$categoriaActual ? 'active' : '' ?>">
                 Todos los productos
             </a>
             <?php foreach ($categorias as $cat): ?>
-                <a href="/blancos/public/productos?categoria=<?= $cat['slug'] ?>" 
+                <a href="<?= URL_BASE ?>/productos?categoria=<?= $cat['slug'] ?>" 
                    class="list-group-item list-group-item-action <?= ($categoriaActual && $categoriaActual['id_ct_categoria'] == $cat['id_ct_categoria']) ? 'active' : '' ?>">
                     <?= htmlspecialchars($cat['nombre']) ?>
                 </a>
@@ -52,7 +52,7 @@
                                 </p>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <span class="h5 mb-0 text-primary fw-bold">$<?= number_format($producto['precio_base'], 2) ?></span>
-                                    <a href="/blancos/public/producto/<?= $producto['slug'] ?>" class="btn btn-primary btn-sm rounded-pill px-3">Ver más</a>
+                                    <a href="<?= URL_BASE ?>/producto/<?= $producto['slug'] ?>" class="btn btn-primary btn-sm rounded-pill px-3">Ver más</a>
                                 </div>
                             </div>
                         </div>

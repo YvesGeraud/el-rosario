@@ -63,7 +63,7 @@ class AdminProductoController {
         if ($id) {
             $this->handleImages($id);
             $this->handleVariants($id);
-            header('Location: /blancos/public/admin/productos');
+            header('Location: ' . URL_BASE . '/admin/productos');
             exit;
         }
     }
@@ -74,7 +74,7 @@ class AdminProductoController {
     public function edit($id) {
         $producto = $this->productoModel->findById($id);
         if (!$producto) {
-            header('Location: /blancos/public/admin/productos');
+            header('Location: ' . URL_BASE . '/admin/productos');
             exit;
         }
 
@@ -109,7 +109,7 @@ class AdminProductoController {
         if ($this->productoModel->update($id, $data)) {
             $this->handleImages($id);
             $this->handleVariants($id);
-            header('Location: /blancos/public/admin/productos');
+            header('Location: ' . URL_BASE . '/admin/productos');
             exit;
         }
     }
@@ -119,7 +119,7 @@ class AdminProductoController {
      */
     public function delete($id) {
         $this->productoModel->delete($id);
-        header('Location: /blancos/public/admin/productos');
+        header('Location: ' . URL_BASE . '/admin/productos');
         exit;
     }
 
@@ -139,7 +139,7 @@ class AdminProductoController {
             if ($_FILES['imagenes']['error'][$key] === UPLOAD_ERR_OK) {
                 $name = time() . '_' . basename($_FILES['imagenes']['name'][$key]);
                 $targetPath = $uploadDir . $name;
-                $dbPath = '/blancos/public/uploads/productos/' . $name;
+                $dbPath = '' . URL_BASE . '/uploads/productos/' . $name;
 
                 if (move_uploaded_file($tmpName, $targetPath)) {
                     $es_principal = ($key === 0 && count($this->productoModel->getImages($id_producto)) === 0) ? 1 : 0;

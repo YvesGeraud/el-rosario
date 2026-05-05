@@ -8,7 +8,7 @@ class AuthMiddleware {
      */
     public static function check() {
         if (!isset($_SESSION['user_id'])) {
-            header('Location: /blancos/public/admin/login');
+            header('Location: ' . URL_BASE . '/admin/login');
             exit;
         }
     }

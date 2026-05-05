@@ -10,7 +10,7 @@
     <?php unset($_SESSION['config_success']); ?>
 <?php endif; ?>
 
-<form action="/blancos/public/admin/configuracion" method="POST">
+<form action="<?= URL_BASE ?>/admin/configuracion" method="POST">
     <div class="row g-4">
         <!-- Datos de Contacto -->
         <div class="col-md-6">

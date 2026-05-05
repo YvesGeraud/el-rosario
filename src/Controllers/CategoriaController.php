@@ -49,7 +49,7 @@ class CategoriaController {
         ];
 
         if ($this->categoriaModel->create($data)) {
-            header('Location: /blancos/public/admin/categorias');
+            header('Location: ' . URL_BASE . '/admin/categorias');
             exit;
         }
     }
@@ -67,7 +67,7 @@ class CategoriaController {
         $categoria = $stmt->fetch();
 
         if (!$categoria) {
-            header('Location: /blancos/public/admin/categorias');
+            header('Location: ' . URL_BASE . '/admin/categorias');
             exit;
         }
 
@@ -90,7 +90,7 @@ class CategoriaController {
         ];
 
         if ($this->categoriaModel->update($id, $data)) {
-            header('Location: /blancos/public/admin/categorias');
+            header('Location: ' . URL_BASE . '/admin/categorias');
             exit;
         }
     }
@@ -100,7 +100,7 @@ class CategoriaController {
      */
     public function delete($id) {
         $this->categoriaModel->delete($id);
-        header('Location: /blancos/public/admin/categorias');
+        header('Location: ' . URL_BASE . '/admin/categorias');
         exit;
     }
 

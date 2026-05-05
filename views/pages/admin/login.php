@@ -13,7 +13,7 @@
                     </div>
                 <?php endif; ?>
 
-                <form action="/blancos/public/admin/login" method="POST">
+                <form action="<?= URL_BASE ?>/admin/login" method="POST">
                     <div class="mb-4">
                         <label for="email" class="form-label fw-bold">Correo Electrónico</label>
                         <div class="input-group">
@@ -36,7 +36,7 @@
                 </form>
             </div>
             <div class="card-footer bg-light p-3 text-center border-0">
-                <a href="/blancos/public/" class="text-muted small"><i class="bi bi-house me-1"></i> Volver al sitio público</a>
+                <a href="<?= URL_BASE ?>/" class="text-muted small"><i class="bi bi-house me-1"></i> Volver al sitio público</a>
             </div>
         </div>
     </div>

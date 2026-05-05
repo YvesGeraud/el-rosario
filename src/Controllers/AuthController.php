@@ -19,7 +19,7 @@ class AuthController {
     public function showLogin() {
         // Si ya está logueado, mandarlo al dashboard
         if (isset($_SESSION['user_id'])) {
-            header('Location: /blancos/public/admin/dashboard');
+            header('Location: ' . URL_BASE . '/admin/dashboard');
             exit;
         }
 
@@ -46,13 +46,13 @@ class AuthController {
             $_SESSION['user_name'] = $user['nombre'];
             $_SESSION['user_rol'] = $user['rol'];
             
-            header('Location: /blancos/public/admin/dashboard');
+            header('Location: ' . URL_BASE . '/admin/dashboard');
             exit;
         }
 
         // Error de login
         $_SESSION['login_error'] = 'Credenciales incorrectas o cuenta inactiva.';
-        header('Location: /blancos/public/admin/login');
+        header('Location: ' . URL_BASE . '/admin/login');
         exit;
     }
 
@@ -61,7 +61,7 @@ class AuthController {
      */
     public function logout() {
         session_destroy();
-        header('Location: /blancos/public/admin/login');
+        header('Location: ' . URL_BASE . '/admin/login');
         exit;
     }
 }

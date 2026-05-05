@@ -22,7 +22,7 @@
                 <div class="display-4 text-primary mb-2"><i class="bi bi-box-seam"></i></div>
                 <h5 class="fw-bold">Gestión de Productos</h5>
                 <p class="text-muted small">Crea, edita o elimina los productos de tu catálogo.</p>
-                <a href="/blancos/public/admin/productos" class="btn btn-outline-primary rounded-pill px-4">Administrar</a>
+                <a href="<?= URL_BASE ?>/admin/productos" class="btn btn-outline-primary rounded-pill px-4">Administrar</a>
             </div>
         </div>
     </div>
@@ -32,7 +32,7 @@
                 <div class="display-4 text-primary mb-2"><i class="bi bi-tags"></i></div>
                 <h5 class="fw-bold">Categorías</h5>
                 <p class="text-muted small">Organiza tus productos por tipo (Sábanas, Almohadas, etc).</p>
-                <a href="/blancos/public/admin/categorias" class="btn btn-outline-primary rounded-pill px-4">Administrar</a>
+                <a href="<?= URL_BASE ?>/admin/categorias" class="btn btn-outline-primary rounded-pill px-4">Administrar</a>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <div class="display-4 text-primary mb-2"><i class="bi bi-chat-dots"></i></div>
                 <h5 class="fw-bold">Mensajes</h5>
                 <p class="text-muted small">Revisa los mensajes que te han enviado tus clientes.</p>
-                <a href="/blancos/public/admin/mensajes" class="btn btn-outline-primary rounded-pill px-4">Ver Mensajes</a>
+                <a href="<?= URL_BASE ?>/admin/mensajes" class="btn btn-outline-primary rounded-pill px-4">Ver Mensajes</a>
             </div>
         </div>
     </div>

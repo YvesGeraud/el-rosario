@@ -83,7 +83,7 @@
                     <?php unset($_SESSION['contact_error']); ?>
                 <?php endif; ?>
 
-                <form action="/blancos/public/contacto" method="POST">
+                <form action="<?= URL_BASE ?>/contacto" method="POST">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label for="nombre" class="form-label fw-bold small text-uppercase">Nombre Completo</label>

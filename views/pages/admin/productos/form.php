@@ -1,11 +1,11 @@
 <div class="mb-4">
-    <a href="/blancos/public/admin/productos" class="text-decoration-none text-muted small">
+    <a href="<?= URL_BASE ?>/admin/productos" class="text-decoration-none text-muted small">
         <i class="bi bi-arrow-left me-1"></i> Volver al listado
     </a>
     <h1 class="h3 fw-bold text-dark mt-2"><?= $producto ? 'Editar' : 'Nuevo' ?> Producto</h1>
 </div>
 
-<form action="/blancos/public/admin/productos/<?= $producto ? 'editar/'.$producto['id_ct_producto'] : 'crear' ?>" method="POST" enctype="multipart/form-data">
+<form action="<?= URL_BASE ?>/admin/productos/<?= $producto ? 'editar/'.$producto['id_ct_producto'] : 'crear' ?>" method="POST" enctype="multipart/form-data">
     <div class="row g-4">
         <!-- Columna Izquierda: Datos Básicos -->
         <div class="col-lg-8">
@@ -151,7 +151,7 @@
                         <button type="submit" class="btn btn-primary btn-lg rounded-pill fw-bold">
                             <i class="bi bi-save me-2"></i> <?= $producto ? 'Actualizar' : 'Guardar' ?> Producto
                         </button>
-                        <a href="/blancos/public/admin/productos" class="btn btn-light rounded-pill">Cancelar</a>
+                        <a href="<?= URL_BASE ?>/admin/productos" class="btn btn-light rounded-pill">Cancelar</a>
                     </div>
                 </div>
             </div>

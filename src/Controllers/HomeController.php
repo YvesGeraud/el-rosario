@@ -39,7 +39,7 @@ class HomeController {
             $_SESSION['contact_error'] = 'Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo.';
         }
 
-        header('Location: /blancos/public/contacto');
+        header('Location: ' . URL_BASE . '/contacto');
         exit;
     }
 }

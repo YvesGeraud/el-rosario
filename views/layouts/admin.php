@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/blancos/public/css/app.css">
+    <link rel="stylesheet" href="<?= URL_BASE ?>/css/app.css">
     <style>
         /* ── Variables ──────────────────────────────────── */
         :root {
@@ -214,7 +214,7 @@
 
     <!-- ── Sidebar ───────────────────────────────────────── -->
     <nav class="sidebar">
-        <a class="sidebar-brand" href="/blancos/public/admin/dashboard">
+        <a class="sidebar-brand" href="<?= URL_BASE ?>/admin/dashboard">
             <div class="sidebar-brand-icon"><i class="bi bi-house-heart-fill"></i></div>
             <div class="sidebar-brand-text">
                 <strong>EL ROSARIO</strong>
@@ -226,25 +226,25 @@
         <ul class="nav flex-column px-0">
             <li>
                 <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'dashboard') ? 'active' : '' ?>"
-                   href="/blancos/public/admin/dashboard">
+                   href="<?= URL_BASE ?>/admin/dashboard">
                     <i class="bi bi-grid-1x2-fill"></i> Dashboard
                 </a>
             </li>
             <li>
                 <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'productos') ? 'active' : '' ?>"
-                   href="/blancos/public/admin/productos">
+                   href="<?= URL_BASE ?>/admin/productos">
                     <i class="bi bi-bag-check-fill"></i> Productos
                 </a>
             </li>
             <li>
                 <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'categorias') ? 'active' : '' ?>"
-                   href="/blancos/public/admin/categorias">
+                   href="<?= URL_BASE ?>/admin/categorias">
                     <i class="bi bi-collection-fill"></i> Categorías
                 </a>
             </li>
             <li>
                 <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'mensajes') ? 'active' : '' ?>"
-                   href="/blancos/public/admin/mensajes">
+                   href="<?= URL_BASE ?>/admin/mensajes">
                     <i class="bi bi-envelope-paper-fill"></i> Mensajes
                 </a>
             </li>
@@ -254,7 +254,7 @@
         <ul class="nav flex-column px-0">
             <li>
                 <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'configuracion') ? 'active' : '' ?>"
-                   href="/blancos/public/admin/configuracion">
+                   href="<?= URL_BASE ?>/admin/configuracion">
                     <i class="bi bi-sliders"></i> Configuración
                 </a>
             </li>
@@ -263,12 +263,12 @@
         <div class="sidebar-footer">
             <ul class="nav flex-column px-0">
                 <li>
-                    <a class="nav-link" href="/blancos/public/" target="_blank">
+                    <a class="nav-link" href="<?= URL_BASE ?>/" target="_blank">
                         <i class="bi bi-box-arrow-up-right"></i> Ver sitio web
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="/blancos/public/admin/logout">
+                    <a class="nav-link" href="<?= URL_BASE ?>/admin/logout">
                         <i class="bi bi-power"></i> Cerrar Sesión
                     </a>
                 </li>
@@ -293,9 +293,9 @@
                     <span class="topbar-user-name"><?= $_SESSION['user_name'] ?></span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3 mt-1">
-                    <li><a class="dropdown-item small" href="/blancos/public/admin/configuracion"><i class="bi bi-gear me-2"></i>Configuración</a></li>
+                    <li><a class="dropdown-item small" href="<?= URL_BASE ?>/admin/configuracion"><i class="bi bi-gear me-2"></i>Configuración</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item small text-danger" href="/blancos/public/admin/logout"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item small text-danger" href="<?= URL_BASE ?>/admin/logout"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
                 </ul>
             </div>
         </header>

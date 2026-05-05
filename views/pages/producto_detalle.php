@@ -1,7 +1,7 @@
 <div class="container py-5">
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="/blancos/public/productos">Catálogo</a></li>
+    <li class="breadcrumb-item"><a href="<?= URL_BASE ?>/productos">Catálogo</a></li>
     <li class="breadcrumb-item active text-muted"><?= htmlspecialchars($producto['categoria_nombre']) ?></li>
     <li class="breadcrumb-item active" aria-current="page"><?= htmlspecialchars($producto['nombre']) ?></li>
   </ol>
@@ -77,7 +77,7 @@
                class="btn btn-success btn-lg shadow-sm">
                 <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp
             </a>
-            <a href="/blancos/public/contacto?producto=<?= $producto['id_ct_producto'] ?>" class="btn btn-outline-secondary">
+            <a href="<?= URL_BASE ?>/contacto?producto=<?= $producto['id_ct_producto'] ?>" class="btn btn-outline-secondary">
                 Enviar mensaje de contacto
             </a>
         </div>

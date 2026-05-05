@@ -40,7 +40,7 @@ class AdminConfigController {
         }
 
         $_SESSION['config_success'] = 'Configuración actualizada correctamente.';
-        header('Location: /blancos/public/admin/configuracion');
+        header('Location: ' . URL_BASE . '/admin/configuracion');
         exit;
     }
 }
