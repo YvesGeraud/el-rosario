@@ -2,6 +2,8 @@
 
 /** @var \App\Core\Router $router */
 
+// TEMPORAL: Reset contraseña admin — BORRAR después de usarlo
+$router->get('/reset-admin-pass', 'AuthController@resetAdminPass');
 
 $router->get('/', 'HomeController@index');
 $router->get('/productos', 'ProductoController@index');

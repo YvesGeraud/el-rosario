@@ -64,4 +64,21 @@ class AuthController {
         header('Location: ' . URL_BASE . '/admin/login');
         exit;
     }
+
+    /**
+     * TEMPORAL: Resetear contraseña de admin
+     */
+    public function resetAdminPass() {
+        $email = 'admin@blancoselrosario.com';
+        $pass = password_hash('admin123', PASSWORD_BCRYPT);
+        
+        $db = \App\Core\Database::getInstance();
+        $stmt = $db->prepare("UPDATE ct_usuarios SET password = :pass WHERE email = :email");
+        $stmt->execute(['pass' => $pass, 'email' => $email]);
+        
+        echo "<h1>Contraseña reseteada con éxito</h1>";
+        echo "<p>Email: admin@blancoselrosario.com</p>";
+        echo "<p>Password: admin123</p>";
+        echo "<a href='" . URL_BASE . "/admin/login'>Ir al login</a>";
+    }
 }
