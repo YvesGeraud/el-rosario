@@ -25,7 +25,7 @@
                     <li class="nav-item"><a class="nav-link" href="<?= URL_BASE ?>/productos">PRODUCTOS</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= URL_BASE ?>/contacto">CONTACTO</a></li>
                     <li class="nav-item ms-2">
-                        <a href="https://wa.me/521234567890" target="_blank"
+                        <a href="https://wa.me/<?= $config['contacto_whatsapp'] ?? '' ?>" target="_blank"
                            class="btn btn-primary btn-sm px-3 d-flex align-items-center gap-1">
                             <i class="bi bi-whatsapp"></i> Cotizar
                         </a>
@@ -50,9 +50,9 @@
                         Tu tienda de confianza en blancos y ropa de cama. Calidad y confort para toda la familia.
                     </p>
                     <div class="d-flex gap-2 mt-3">
-                        <a href="#" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-whatsapp"></i></a>
+                        <a href="<?= $config['redes_facebook'] ?? '#' ?>" target="_blank" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-facebook"></i></a>
+                        <a href="<?= $config['redes_instagram'] ?? '#' ?>" target="_blank" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/<?= $config['contacto_whatsapp'] ?? '' ?>" target="_blank" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -66,9 +66,9 @@
                 <div class="col-md-4">
                     <h6 class="text-white fw-bold mb-3">Contacto</h6>
                     <ul class="list-unstyled small" style="color: rgba(255,255,255,0.55);">
-                        <li class="mb-2"><i class="bi bi-geo-alt me-2" style="color:var(--primary)"></i>Rosario, Sinaloa, México</li>
-                        <li class="mb-2"><i class="bi bi-telephone me-2" style="color:var(--primary)"></i>+52 123 456 7890</li>
-                        <li class="mb-2"><i class="bi bi-envelope me-2" style="color:var(--primary)"></i>contacto@blancoselrosario.com</li>
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2" style="color:var(--primary)"></i><?= $config['contacto_direccion'] ?? '' ?></li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2" style="color:var(--primary)"></i><?= $config['contacto_telefono'] ?? '' ?></li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2" style="color:var(--primary)"></i><?= $config['contacto_email'] ?? '' ?></li>
                     </ul>
                 </div>
             </div>

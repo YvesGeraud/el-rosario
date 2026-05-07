@@ -2,8 +2,14 @@
 
 namespace App\Core;
 
+use App\Models\Configuracion;
+
 class View {
     public static function render($path, $data = [], $layout = 'public') {
+        // Cargar configuración global
+        $configModel = new Configuracion();
+        $data['config'] = $configModel->getAll();
+
         extract($data);
         
         ob_start();
