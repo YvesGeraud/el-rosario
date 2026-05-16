@@ -21,9 +21,9 @@
 
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="id_ct_categoria" class="form-label fw-bold">Categoría</label>
+                            <label for="id_ct_categoria" class="form-label fw-bold">Línea de Productos</label>
                             <select class="form-select bg-light border-0" id="id_ct_categoria" name="id_ct_categoria" required>
-                                <option value="">Seleccionar categoría...</option>
+                                <option value="">Seleccionar línea de productos...</option>
                                 <?php foreach ($categorias as $cat): ?>
                                     <option value="<?= $cat['id_ct_categoria'] ?>" <?= ($producto && $producto['id_ct_categoria'] == $cat['id_ct_categoria']) ? 'selected' : '' ?>>
                                         <?= htmlspecialchars($cat['nombre']) ?>

@@ -12,7 +12,7 @@
                 <thead class="bg-light">
                     <tr>
                         <th class="ps-4 py-3">Producto</th>
-                        <th class="py-3">Categoría</th>
+                        <th class="py-3">Línea de Productos</th>
                         <th class="py-3">Precio Base</th>
                         <th class="py-3">Estado</th>
                         <th class="py-3">Destacado</th>

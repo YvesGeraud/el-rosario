@@ -239,7 +239,7 @@
             <li>
                 <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'categorias') ? 'active' : '' ?>"
                    href="<?= URL_BASE ?>/admin/categorias">
-                    <i class="bi bi-collection-fill"></i> Categorías
+                    <i class="bi bi-collection-fill"></i> Líneas de Productos
                 </a>
             </li>
             <li>

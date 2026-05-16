@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="h3 fw-bold text-dark mb-0">Gestión de Categorías</h1>
+    <h1 class="h3 fw-bold text-dark mb-0">Gestión de Líneas de Productos</h1>
     <a href="/blancos/public/admin/categorias/crear" class="btn btn-primary rounded-pill px-4">
-        <i class="bi bi-plus-lg me-2"></i> Nueva Categoría
+        <i class="bi bi-plus-lg me-2"></i> Nueva Línea de Productos
     </a>
 </div>
 
@@ -22,7 +22,7 @@
                     <?php if (empty($categorias)): ?>
                         <tr>
                             <td colspan="5" class="text-center py-5 text-muted">
-                                No hay categorías registradas aún.
+                                No hay líneas de productos registradas aún.
                             </td>
                         </tr>
                     <?php else: ?>
@@ -59,7 +59,7 @@
 
 <script>
 function confirmDelete(id) {
-    if (confirm('¿Estás seguro de que deseas desactivar esta categoría?')) {
+    if (confirm('¿Estás seguro de que deseas desactivar esta línea de productos?')) {
         window.location.href = '/blancos/public/admin/categorias/eliminar/' + id;
     }
 }

@@ -2,7 +2,7 @@
     <a href="<?= URL_BASE ?>/admin/categorias" class="text-decoration-none text-muted small">
         <i class="bi bi-arrow-left me-1"></i> Volver al listado
     </a>
-    <h1 class="h3 fw-bold text-dark mt-2"><?= $categoria ? 'Editar' : 'Nueva' ?> Categoría</h1>
+    <h1 class="h3 fw-bold text-dark mt-2"><?= $categoria ? 'Editar' : 'Nueva' ?> Línea de Productos</h1>
 </div>
 
 <div class="row">
@@ -11,7 +11,7 @@
             <div class="card-body p-4">
                 <form action="<?= URL_BASE ?>/admin/categorias/<?= $categoria ? 'editar/'.$categoria['id_ct_categoria'] : 'crear' ?>" method="POST">
                     <div class="mb-4">
-                        <label for="nombre" class="form-label fw-bold">Nombre de la Categoría</label>
+                        <label for="nombre" class="form-label fw-bold">Nombre de la Línea de Productos</label>
                         <input type="text" class="form-control form-control-lg bg-light border-0" 
                                id="nombre" name="nombre" 
                                value="<?= $categoria ? htmlspecialchars($categoria['nombre']) : '' ?>" 
@@ -22,7 +22,7 @@
                     <div class="mb-4">
                         <label for="descripcion" class="form-label fw-bold">Descripción (Opcional)</label>
                         <textarea class="form-control bg-light border-0" id="descripcion" name="descripcion" 
-                                  rows="4" placeholder="Breve descripción de los productos en esta categoría"><?= $categoria ? htmlspecialchars($categoria['descripcion']) : '' ?></textarea>
+                                  rows="4" placeholder="Breve descripción de los productos en esta línea"><?= $categoria ? htmlspecialchars($categoria['descripcion']) : '' ?></textarea>
                     </div>
 
                     <div class="mb-4">
@@ -44,7 +44,7 @@
                     <div class="d-flex justify-content-end gap-2">
                         <a href="<?= URL_BASE ?>/admin/categorias" class="btn btn-light rounded-pill px-4">Cancelar</a>
                         <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold">
-                            <i class="bi bi-save me-2"></i> <?= $categoria ? 'Actualizar' : 'Guardar' ?> Categoría
+                            <i class="bi bi-save me-2"></i> <?= $categoria ? 'Actualizar' : 'Guardar' ?> Línea de Productos
                         </button>
                     </div>
                 </form>
@@ -57,9 +57,9 @@
             <div class="card-body p-4">
                 <h5 class="fw-bold mb-3"><i class="bi bi-info-circle me-2 text-primary"></i> Ayuda</h5>
                 <p class="small text-muted mb-0">
-                    Las categorías sirven para organizar el catálogo público. Asegúrate de usar nombres claros y descriptivos. 
+                    Las líneas de productos sirven para organizar el catálogo público. Asegúrate de usar nombres claros y descriptivos. 
                     <br><br>
-                    <strong>Nota:</strong> Si desactivas una categoría, sus productos asociados dejarán de aparecer en el menú de filtros del catálogo.
+                    <strong>Nota:</strong> Si desactivas una línea de productos, sus productos asociados dejarán de aparecer en el menú de filtros del catálogo.
                 </p>
             </div>
         </div>

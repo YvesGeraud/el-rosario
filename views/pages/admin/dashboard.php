@@ -30,7 +30,7 @@
         <div class="card border-0 shadow-sm h-100 rounded-4">
             <div class="card-body p-4 text-center">
                 <div class="display-4 text-primary mb-2"><i class="bi bi-tags"></i></div>
-                <h5 class="fw-bold">Categorías</h5>
+                <h5 class="fw-bold">Líneas de Productos</h5>
                 <p class="text-muted small">Organiza tus productos por tipo (Sábanas, Almohadas, etc).</p>
                 <a href="<?= URL_BASE ?>/admin/categorias" class="btn btn-outline-primary rounded-pill px-4">Administrar</a>
             </div>
