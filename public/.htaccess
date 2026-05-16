@@ -1,6 +1,6 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /blancos/public/
+    RewriteBase /rosario/public/
 
     # Redirigir a index.php si el archivo o directorio no existe
     RewriteCond %{REQUEST_FILENAME} !-f

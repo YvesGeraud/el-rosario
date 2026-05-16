@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Blancos El Rosario' ?></title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= URL_BASE ?>/css/app.css">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="<?= URL_BASE ?>/">
-                BLANCOS <span style="color: var(--primary);">EL ROSARIO</span>
+            <a class="navbar-brand py-0" href="<?= URL_BASE ?>/">
+                <!-- Ajusta el valor de max-height para cambiar el tamaño del logo -->
+                <img src="<?= URL_BASE ?>/img/logo.jpg" alt="Blancos El Rosario"
+                    style="max-height: 60px; width: auto; object-fit: contain;">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -26,7 +31,7 @@
                     <li class="nav-item"><a class="nav-link" href="<?= URL_BASE ?>/contacto">CONTACTO</a></li>
                     <li class="nav-item ms-2">
                         <a href="https://wa.me/<?= $config['contacto_whatsapp'] ?? '' ?>" target="_blank"
-                           class="btn btn-primary btn-sm px-3 d-flex align-items-center gap-1">
+                            class="btn btn-primary btn-sm px-3 d-flex align-items-center gap-1">
                             <i class="bi bi-whatsapp"></i> Cotizar
                         </a>
                     </li>
@@ -50,9 +55,18 @@
                         Tu tienda de confianza en blancos y ropa de cama. Calidad y confort para toda la familia.
                     </p>
                     <div class="d-flex gap-2 mt-3">
-                        <a href="<?= $config['redes_facebook'] ?? '#' ?>" target="_blank" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-facebook"></i></a>
-                        <a href="<?= $config['redes_instagram'] ?? '#' ?>" target="_blank" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-instagram"></i></a>
-                        <a href="https://wa.me/<?= $config['contacto_whatsapp'] ?? '' ?>" target="_blank" class="btn btn-sm btn-outline-light rounded-circle p-1" style="width:34px;height:34px;display:grid;place-items:center;"><i class="bi bi-whatsapp"></i></a>
+                        <a href="<?= $config['redes_facebook'] ?? '#' ?>" target="_blank"
+                            class="btn btn-sm btn-outline-light rounded-circle p-1"
+                            style="width:34px;height:34px;display:grid;place-items:center;"><i
+                                class="bi bi-facebook"></i></a>
+                        <a href="<?= $config['redes_instagram'] ?? '#' ?>" target="_blank"
+                            class="btn btn-sm btn-outline-light rounded-circle p-1"
+                            style="width:34px;height:34px;display:grid;place-items:center;"><i
+                                class="bi bi-instagram"></i></a>
+                        <a href="https://wa.me/<?= $config['contacto_whatsapp'] ?? '' ?>" target="_blank"
+                            class="btn btn-sm btn-outline-light rounded-circle p-1"
+                            style="width:34px;height:34px;display:grid;place-items:center;"><i
+                                class="bi bi-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -66,9 +80,12 @@
                 <div class="col-md-4">
                     <h6 class="text-white fw-bold mb-3">Contacto</h6>
                     <ul class="list-unstyled small" style="color: rgba(255,255,255,0.55);">
-                        <li class="mb-2"><i class="bi bi-geo-alt me-2" style="color:var(--primary)"></i><?= $config['contacto_direccion'] ?? '' ?></li>
-                        <li class="mb-2"><i class="bi bi-telephone me-2" style="color:var(--primary)"></i><?= $config['contacto_telefono'] ?? '' ?></li>
-                        <li class="mb-2"><i class="bi bi-envelope me-2" style="color:var(--primary)"></i><?= $config['contacto_email'] ?? '' ?></li>
+                        <li class="mb-2"><i class="bi bi-geo-alt me-2"
+                                style="color:var(--primary)"></i><?= $config['contacto_direccion'] ?? '' ?></li>
+                        <li class="mb-2"><i class="bi bi-telephone me-2"
+                                style="color:var(--primary)"></i><?= $config['contacto_telefono'] ?? '' ?></li>
+                        <li class="mb-2"><i class="bi bi-envelope me-2"
+                                style="color:var(--primary)"></i><?= $config['contacto_email'] ?? '' ?></li>
                     </ul>
                 </div>
             </div>
@@ -81,4 +98,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

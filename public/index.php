@@ -2,14 +2,14 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Cargar variables de entorno (safeLoad no lanza error si no existe .env)
+// Cargar variables de entorno
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->safeLoad();
 
-// Configurar errores (Whoops)
-if ($_ENV['APP_DEBUG'] === 'true') {
+// Configurar errores
+if (($_ENV['APP_DEBUG'] ?? 'false') === 'true') {
     $whoops = new \Whoops\Run;
-    $whoops->pushHandler(new \Whoops\Handler\PlainTextHandler); // Usar PlainText por ahora si no hay navegador
+    $whoops->pushHandler(new \Whoops\Handler\PlainTextHandler);
     $whoops->register();
 }
 
@@ -22,18 +22,22 @@ $router = new \App\Core\Router();
 // Cargar rutas
 require_once __DIR__ . '/../config/routes.php';
 
-// Despachar
-$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-$method = $_SERVER['REQUEST_METHOD'];
-
-// Detectar la base de la URL (para que funcione en local /blancos/public o en raíz /)
-$basePath = (strpos($_SERVER['REQUEST_URI'], '/blancos/public') === 0) ? '/blancos/public' : '';
+// Ruta base en el servidor
+$basePath = '/rosario/public';
 define('URL_BASE', $basePath);
 
-// Ajustar URI para el router
-if ($basePath !== '' && strpos($uri, $basePath) === 0) {
+// Obtener URI real
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Quitar /rosario/public de la URI antes de pasarla al router
+if (strpos($uri, $basePath) === 0) {
     $uri = substr($uri, strlen($basePath));
 }
-if ($uri === '') $uri = '/';
+
+if ($uri === '' || $uri === false) {
+    $uri = '/';
+}
+
+$method = $_SERVER['REQUEST_METHOD'];
 
 $router->dispatch($uri, $method);
