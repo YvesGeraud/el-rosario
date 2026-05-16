@@ -19,7 +19,7 @@
             <a class="navbar-brand py-0" href="<?= URL_BASE ?>/">
                 <!-- Ajusta el valor de max-height para cambiar el tamaño del logo -->
                 <img src="<?= URL_BASE ?>/img/logo.jpg" alt="Blancos El Rosario"
-                    style="max-height: 60px; width: auto; object-fit: contain;">
+                    style="max-height: 90px; width: auto; object-fit: contain;">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
