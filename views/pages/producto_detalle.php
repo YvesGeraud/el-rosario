@@ -72,7 +72,7 @@
         <?php endif; ?>
 
         <div class="d-grid gap-2 mt-5">
-            <a href="https://wa.me/521234567890?text=Hola,%20me%20interesa%20el%20producto:%20<?= urlencode($producto['nombre']) ?>" 
+            <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $config['contacto_whatsapp'] ?? '521234567890') ?>?text=Hola,%20me%20interesa%20el%20producto:%20<?= urlencode($producto['nombre']) ?>" 
                target="_blank" 
                class="btn btn-success btn-lg shadow-sm">
                 <i class="bi bi-whatsapp"></i> Cotizar por WhatsApp

@@ -23,41 +23,31 @@ function log_msg(string $msg): void
     echo "[Seeder] " . $msg . PHP_EOL;
 }
 
-function waitForDb(string $host, int $port, int $maxAttempts = 30): void
+function waitForDb(string $host, int $port, string $user, string $pass, int $maxAttempts = 30): PDO
 {
     $attempts = 0;
-    log_msg("Esperando conexión a la base de datos...");
+    log_msg("Esperando a que la base de datos esté lista para recibir conexiones...");
+    $dsn = "mysql:host=$host;port=$port;charset=utf8mb4";
     while ($attempts < $maxAttempts) {
-        if (@fsockopen($host, $port)) {
-            log_msg("Base de datos disponible.");
-            return;
+        try {
+            $pdo = new PDO($dsn, $user, $pass, [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'",
+            ]);
+            log_msg("Conexión exitosa con la base de datos.");
+            return $pdo;
+        } catch (PDOException $e) {
+            $attempts++;
+            log_msg("Intento $attempts/$maxAttempts: La base de datos no está lista aún (" . $e->getMessage() . "). Reintentando en 2 segundos...");
+            sleep(2);
         }
-        $attempts++;
-        log_msg("Intento $attempts/$maxAttempts...");
-        sleep(2);
     }
     log_msg("ERROR: No se pudo conectar a la base de datos después de $maxAttempts intentos.");
     exit(1);
 }
 
-// ── Esperar a que MariaDB esté lista ─────────────────────────────────────────
-waitForDb($host, (int) $port);
-
-// ── Conexión PDO (sin seleccionar DB todavía) ─────────────────────────────────
-try {
-    $pdo = new PDO(
-        "mysql:host=$host;port=$port;charset=utf8mb4",
-        $user,
-        $pass,
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8mb4' COLLATE 'utf8mb4_unicode_ci'",
-        ]
-    );
-} catch (PDOException $e) {
-    log_msg("ERROR de conexión: " . $e->getMessage());
-    exit(1);
-}
+// ── Esperar a que MariaDB esté lista y obtener la conexión PDO ────────────────
+$pdo = waitForDb($host, (int) $port, $user, $pass);
 
 // ── Crear la base de datos si no existe ──────────────────────────────────────
 $pdo->exec("CREATE DATABASE IF NOT EXISTS `$dbname` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
@@ -126,6 +116,20 @@ $pdo->exec("
     (4, 'https://m.media-amazon.com/images/I/81x5wc4TcFL.jpg?auto=format&fit=crop&q=80&w=300', 1)
 ");
 log_msg("Imágenes insertadas.");
+
+// Variantes
+$pdo->exec("
+    INSERT INTO dt_variantes_producto (id_ct_producto, nombre, tipo, valor, precio_extra, stock) VALUES
+    (1, 'Matrimonial', 'Talla', 'Matrimonial', 0.00, 15),
+    (1, 'King Size', 'Talla', 'King Size', 200.00, 8),
+    (2, 'Individual', 'Talla', 'Individual', 0.00, 20),
+    (2, 'Matrimonial', 'Talla', 'Matrimonial', 50.00, 12),
+    (3, 'Estándar', 'Talla', 'Estándar', 0.00, 25),
+    (3, 'King Size', 'Talla', 'King Size', 150.00, 10),
+    (4, 'Matrimonial', 'Talla', 'Matrimonial', 0.00, 5),
+    (4, 'King Size', 'Talla', 'King Size', 300.00, 3)
+");
+log_msg("Variantes insertadas.");
 
 // Usuario admin (Asegurar que sea admin123)
 $adminEmail = 'admin@blancoselrosario.com';

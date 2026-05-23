@@ -52,13 +52,13 @@
                 <h6 class="fw-bold mb-3">Síguenos en redes sociales</h6>
                 <div class="d-flex gap-3">
                     <?php if (!empty($cfg['redes_facebook'])): ?>
-                        <a href="<?= $cfg['redes_facebook'] ?>" target="_blank" class="btn btn-outline-light rounded-circle"><i class="bi bi-facebook"></i></a>
+                        <a href="<?= htmlspecialchars($cfg['redes_facebook'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" class="btn btn-outline-light rounded-circle"><i class="bi bi-facebook"></i></a>
                     <?php endif; ?>
                     <?php if (!empty($cfg['redes_instagram'])): ?>
-                        <a href="<?= $cfg['redes_instagram'] ?>" target="_blank" class="btn btn-outline-light rounded-circle"><i class="bi bi-instagram"></i></a>
+                        <a href="<?= htmlspecialchars($cfg['redes_instagram'], ENT_QUOTES, 'UTF-8') ?>" target="_blank" class="btn btn-outline-light rounded-circle"><i class="bi bi-instagram"></i></a>
                     <?php endif; ?>
                     <?php if (!empty($cfg['contacto_whatsapp'])): ?>
-                        <a href="https://wa.me/<?= $cfg['contacto_whatsapp'] ?>" target="_blank" class="btn btn-outline-light rounded-circle"><i class="bi bi-whatsapp"></i></a>
+                        <a href="https://wa.me/<?= preg_replace('/[^0-9]/', '', $cfg['contacto_whatsapp']) ?>" target="_blank" class="btn btn-outline-light rounded-circle"><i class="bi bi-whatsapp"></i></a>
                     <?php endif; ?>
                 </div>
             </div>

@@ -53,7 +53,7 @@
                                 </td>
                                 <td class="text-end pe-4">
                                     <?php if (!$m['leido']): ?>
-                                        <a href="/blancos/public/admin/mensajes/leido/<?= $m['id_dt_contacto'] ?>" 
+                                        <a href="<?= URL_BASE ?>/admin/mensajes/leido/<?= $m['id_dt_contacto'] ?>" 
                                            class="btn btn-sm btn-success rounded-circle me-1" title="Marcar como leído">
                                             <i class="bi bi-check-lg"></i>
                                         </a>
@@ -75,7 +75,7 @@
 <script>
 function confirmDelete(id) {
     if (confirm('¿Estás seguro de que deseas eliminar este mensaje?')) {
-        window.location.href = '/blancos/public/admin/mensajes/eliminar/' + id;
+        window.location.href = '<?= URL_BASE ?>/admin/mensajes/eliminar/' + id;
     }
 }
 </script>

@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3 fw-bold text-dark mb-0">Gestión de Líneas de Productos</h1>
-    <a href="/blancos/public/admin/categorias/crear" class="btn btn-primary rounded-pill px-4">
+    <a href="<?= URL_BASE ?>/admin/categorias/crear" class="btn btn-primary rounded-pill px-4">
         <i class="bi bi-plus-lg me-2"></i> Nueva Línea de Productos
     </a>
 </div>
@@ -39,7 +39,7 @@
                                 </td>
                                 <td class="text-muted small"><?= date('d/m/Y', strtotime($cat['fecha_in'])) ?></td>
                                 <td class="text-end pe-4">
-                                    <a href="/blancos/public/admin/categorias/editar/<?= $cat['id_ct_categoria'] ?>" 
+                                    <a href="<?= URL_BASE ?>/admin/categorias/editar/<?= $cat['id_ct_categoria'] ?>" 
                                        class="btn btn-sm btn-light border rounded-circle me-1" title="Editar">
                                         <i class="bi bi-pencil-fill text-primary"></i>
                                     </a>
@@ -60,7 +60,7 @@
 <script>
 function confirmDelete(id) {
     if (confirm('¿Estás seguro de que deseas desactivar esta línea de productos?')) {
-        window.location.href = '/blancos/public/admin/categorias/eliminar/' + id;
+        window.location.href = '<?= URL_BASE ?>/admin/categorias/eliminar/' + id;
     }
 }
 </script>

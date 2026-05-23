@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Previene el listado de directorios
+    Options -Indexes
+
+    # Redirigir todas las peticiones a la carpeta public/ de forma transparente
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

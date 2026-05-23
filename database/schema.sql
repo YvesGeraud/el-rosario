@@ -50,6 +50,7 @@ CREATE TABLE `dt_variantes_producto` (
 	`tipo` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 	`valor` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
 	`precio_extra` DECIMAL(10,2) NULL DEFAULT '0.00',
+	`stock` INT(11) NULL DEFAULT '0',
 	`estado` TINYINT(1) NULL DEFAULT '1',
 	`fecha_in` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
 	`fecha_mod` TIMESTAMP NULL DEFAULT NULL ON UPDATE current_timestamp(),

@@ -40,6 +40,7 @@ class CategoriaController {
      * Guardar nueva categoría
      */
     public function store() {
+        Request::validateCsrf();
         $nombre = Request::post('nombre');
         $data = [
             'nombre' => $nombre,
@@ -81,6 +82,7 @@ class CategoriaController {
      * Actualizar categoría
      */
     public function update($id) {
+        Request::validateCsrf();
         $nombre = Request::post('nombre');
         $data = [
             'nombre' => $nombre,

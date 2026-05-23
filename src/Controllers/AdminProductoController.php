@@ -47,6 +47,7 @@ class AdminProductoController {
      * Guardar nuevo producto
      */
     public function store() {
+        Request::validateCsrf();
         $nombre = Request::post('nombre');
         $data = [
             'id_ct_categoria' => Request::post('id_ct_categoria'),
@@ -95,6 +96,7 @@ class AdminProductoController {
      * Actualizar producto
      */
     public function update($id) {
+        Request::validateCsrf();
         $nombre = Request::post('nombre');
         $data = [
             'id_ct_categoria' => Request::post('id_ct_categoria'),
@@ -132,12 +134,29 @@ class AdminProductoController {
         $uploadDir = __DIR__ . '/../../public/uploads/productos/';
         if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
 
-        // Si se suben nuevas, podríamos querer limpiar las anteriores o solo añadir
-        // Por ahora solo añadiremos. La lógica de borrar imágenes específicas iría aquí.
+        // Extensiones y tipos MIME permitidos
+        $allowedExtensions = ['jpg', 'jpeg', 'png', 'webp'];
+        $allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp'];
 
         foreach ($_FILES['imagenes']['tmp_name'] as $key => $tmpName) {
             if ($_FILES['imagenes']['error'][$key] === UPLOAD_ERR_OK) {
-                $name = time() . '_' . basename($_FILES['imagenes']['name'][$key]);
+                // 1. Validar la extensión del archivo
+                $originalName = $_FILES['imagenes']['name'][$key];
+                $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+
+                if (!in_array($extension, $allowedExtensions)) {
+                    continue; // Ignorar archivo no permitido
+                }
+
+                // 2. Validar el tipo MIME real
+                $mimeType = mime_content_type($tmpName);
+                if (!in_array($mimeType, $allowedMimeTypes)) {
+                    continue; // Ignorar archivo con tipo MIME falso o no permitido
+                }
+
+                // 3. Sanitizar el nombre del archivo (quitar caracteres especiales)
+                $safeName = preg_replace('/[^a-zA-Z0-9_\.-]/', '_', pathinfo($originalName, PATHINFO_FILENAME));
+                $name = time() . '_' . $safeName . '.' . $extension;
                 $targetPath = $uploadDir . $name;
                 $dbPath = '' . URL_BASE . '/uploads/productos/' . $name;
 

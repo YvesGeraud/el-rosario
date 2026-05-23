@@ -31,6 +31,7 @@ class AdminConfigController {
      * Guardar cambios
      */
     public function update() {
+        Request::validateCsrf();
         unset($_SESSION['config_success']);
         
         $postData = $_POST['config'] ?? [];

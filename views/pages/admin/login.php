@@ -14,6 +14,7 @@
                 <?php endif; ?>
 
                 <form action="<?= URL_BASE ?>/admin/login" method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= \App\Core\Request::csrfToken() ?>">
                     <div class="mb-4">
                         <label for="email" class="form-label fw-bold">Correo Electrónico</label>
                         <div class="input-group">

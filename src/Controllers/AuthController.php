@@ -33,6 +33,7 @@ class AuthController {
      * Procesar el intento de login
      */
     public function login() {
+        Request::validateCsrf();
         unset($_SESSION['login_error']);
         
         $email = Request::post('email');

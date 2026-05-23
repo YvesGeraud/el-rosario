@@ -6,6 +6,7 @@
 </div>
 
 <form action="<?= URL_BASE ?>/admin/productos/<?= $producto ? 'editar/'.$producto['id_ct_producto'] : 'crear' ?>" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="<?= \App\Core\Request::csrfToken() ?>">
     <div class="row g-4">
         <!-- Columna Izquierda: Datos Básicos -->
         <div class="col-lg-8">

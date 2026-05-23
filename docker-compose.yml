@@ -16,7 +16,7 @@ services:
     command: >
       --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     healthcheck:
-      test: [ 'CMD', 'mariadb-admin', 'ping', '-h', '127.0.0.1', '-u', 'user', '-p', 'password' ]
+      test: [ 'CMD', 'mariadb-admin', 'ping', '-h', '127.0.0.1', '-u', 'user', '-ppassword' ]
       interval: 5s
       timeout: 3s
       retries: 30

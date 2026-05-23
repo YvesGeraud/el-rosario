@@ -11,6 +11,7 @@
 <?php endif; ?>
 
 <form action="<?= URL_BASE ?>/admin/configuracion" method="POST">
+    <input type="hidden" name="csrf_token" value="<?= \App\Core\Request::csrfToken() ?>">
     <div class="row g-4">
         <!-- Datos de Contacto -->
         <div class="col-md-6">

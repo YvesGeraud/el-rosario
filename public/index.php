@@ -22,15 +22,18 @@ $router = new \App\Core\Router();
 // Cargar rutas
 require_once __DIR__ . '/../config/routes.php';
 
-// Ruta base en el servidor
-$basePath = '/rosario/public';
+// Ruta base en el servidor calculada dinámicamente
+$basePath = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME']));
+if ($basePath === '/' || $basePath === '\\') {
+    $basePath = '';
+}
 define('URL_BASE', $basePath);
 
 // Obtener URI real
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Quitar /rosario/public de la URI antes de pasarla al router
-if (strpos($uri, $basePath) === 0) {
+// Quitar la ruta base de la URI antes de pasarla al router
+if (!empty($basePath) && strpos($uri, $basePath) === 0) {
     $uri = substr($uri, strlen($basePath));
 }
 

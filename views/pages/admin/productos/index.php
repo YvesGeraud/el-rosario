@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
     <h1 class="h3 fw-bold text-dark mb-0">Gestión de Productos</h1>
-    <a href="/blancos/public/admin/productos/crear" class="btn btn-primary rounded-pill px-4">
+    <a href="<?= URL_BASE ?>/admin/productos/crear" class="btn btn-primary rounded-pill px-4">
         <i class="bi bi-plus-lg me-2"></i> Nuevo Producto
     </a>
 </div>
@@ -56,7 +56,7 @@
                                     <?php endif; ?>
                                 </td>
                                 <td class="text-end pe-4">
-                                    <a href="/blancos/public/admin/productos/editar/<?= $p['id_ct_producto'] ?>" 
+                                    <a href="<?= URL_BASE ?>/admin/productos/editar/<?= $p['id_ct_producto'] ?>" 
                                        class="btn btn-sm btn-light border rounded-circle me-1" title="Editar">
                                         <i class="bi bi-pencil-fill text-primary"></i>
                                     </a>
@@ -77,7 +77,7 @@
 <script>
 function confirmDelete(id) {
     if (confirm('¿Estás seguro de que deseas desactivar este producto?')) {
-        window.location.href = '/blancos/public/admin/productos/eliminar/' + id;
+        window.location.href = '<?= URL_BASE ?>/admin/productos/eliminar/' + id;
     }
 }
 </script>

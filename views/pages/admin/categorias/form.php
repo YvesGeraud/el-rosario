@@ -10,6 +10,7 @@
         <div class="card border-0 shadow-sm rounded-4">
             <div class="card-body p-4">
                 <form action="<?= URL_BASE ?>/admin/categorias/<?= $categoria ? 'editar/'.$categoria['id_ct_categoria'] : 'crear' ?>" method="POST">
+                    <input type="hidden" name="csrf_token" value="<?= \App\Core\Request::csrfToken() ?>">
                     <div class="mb-4">
                         <label for="nombre" class="form-label fw-bold">Nombre de la Línea de Productos</label>
                         <input type="text" class="form-control form-control-lg bg-light border-0" 

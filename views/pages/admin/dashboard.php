@@ -4,7 +4,7 @@
              style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);">
             <div class="row align-items-center">
                 <div class="col-md-8">
-                    <h1 class="fw-bold mb-2">¡Bienvenido, <?= $user ?>!</h1>
+                    <h1 class="fw-bold mb-2">¡Bienvenido, <?= htmlspecialchars($user) ?>!</h1>
                     <p class="mb-0 opacity-75 fs-5">Panel de Control Administrativo | Blancos El Rosario</p>
                 </div>
                 <div class="col-md-4 text-end d-none d-md-block">
