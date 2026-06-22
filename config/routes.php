@@ -43,13 +43,22 @@ $router->get('/admin/configuracion', 'AdminConfigController@index');
 $router->post('/admin/configuracion', 'AdminConfigController@update');
 
 // ── E-Commerce: Clientes ────────────────────────────────────────────────────
-$router->get('/registro',  'ClienteController@showRegistro');
-$router->post('/registro', 'ClienteController@registro');
-$router->get('/login',     'ClienteController@showLogin');
-$router->post('/login',    'ClienteController@login');
-$router->get('/logout-cliente', 'ClienteController@logout');
-$router->get('/mi-cuenta', 'ClienteController@miCuenta');
+// NOTA: /login y /registro NO existen en rutas públicas.
+// El único login del sistema es /admin/login (administrador).
+// Los clientes acceden a su cuenta desde /mi-cuenta/acceso y /mi-cuenta/registro.
+
+// Redirigir /login → /admin/login para evitar confusión
+$router->get('/login',    fn() => header('Location: ' . URL_BASE . '/admin/login') & exit());
+$router->post('/login',   fn() => header('Location: ' . URL_BASE . '/admin/login') & exit());
+
+$router->get('/mi-cuenta/acceso',  'ClienteController@showLogin');
+$router->post('/mi-cuenta/acceso', 'ClienteController@login');
+$router->get('/mi-cuenta/registro',  'ClienteController@showRegistro');
+$router->post('/mi-cuenta/registro', 'ClienteController@registro');
+$router->get('/logout-cliente',      'ClienteController@logout');
+$router->get('/mi-cuenta',           'ClienteController@miCuenta');
 $router->post('/mi-cuenta/actualizar', 'ClienteController@updatePerfil');
+
 
 // ── E-Commerce: Carrito ─────────────────────────────────────────────────────
 $router->get('/carrito',           'CarritoController@index');

@@ -40,25 +40,25 @@ class ClienteController {
         // Validaciones
         if (empty($nombre) || empty($email) || empty($password)) {
             $_SESSION['reg_error'] = 'Por favor completa todos los campos obligatorios.';
-            header('Location: ' . URL_BASE . '/registro');
+            header('Location: ' . URL_BASE . '/mi-cuenta/registro');
             exit;
         }
 
         if ($password !== $password2) {
             $_SESSION['reg_error'] = 'Las contraseñas no coinciden.';
-            header('Location: ' . URL_BASE . '/registro');
+            header('Location: ' . URL_BASE . '/mi-cuenta/registro');
             exit;
         }
 
         if (strlen($password) < 6) {
             $_SESSION['reg_error'] = 'La contraseña debe tener al menos 6 caracteres.';
-            header('Location: ' . URL_BASE . '/registro');
+            header('Location: ' . URL_BASE . '/mi-cuenta/registro');
             exit;
         }
 
         if ($this->clienteModel->emailExists($email)) {
             $_SESSION['reg_error'] = 'Ese correo electrónico ya está registrado.';
-            header('Location: ' . URL_BASE . '/registro');
+            header('Location: ' . URL_BASE . '/mi-cuenta/registro');
             exit;
         }
 
@@ -113,7 +113,7 @@ class ClienteController {
         }
 
         $_SESSION['login_cliente_error'] = 'Correo o contraseña incorrectos.';
-        header('Location: ' . URL_BASE . '/login');
+        header('Location: ' . URL_BASE . '/mi-cuenta/acceso');
         exit;
     }
 

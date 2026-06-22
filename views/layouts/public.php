@@ -58,7 +58,7 @@
                         </li>
                     <?php else: ?>
                         <li class="nav-item ms-1">
-                            <a href="<?= URL_BASE ?>/login" class="nav-link" title="Iniciar sesión">
+                            <a href="<?= URL_BASE ?>/mi-cuenta/acceso" class="nav-link" title="Iniciar sesión">
                                 <i class="bi bi-person" style="font-size:1.25rem;"></i>
                             </a>
                         </li>

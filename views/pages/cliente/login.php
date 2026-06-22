@@ -14,7 +14,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= URL_BASE ?>/login" method="POST" class="auth-form">
+        <form action="<?= URL_BASE ?>/mi-cuenta/acceso" method="POST" class="auth-form">
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required
@@ -30,7 +30,7 @@
         </form>
 
         <p class="auth-switch">
-            ¿No tienes cuenta? <a href="<?= URL_BASE ?>/registro">Regístrate gratis</a>
+            ¿No tienes cuenta? <a href="<?= URL_BASE ?>/mi-cuenta/registro">Regístrate gratis</a>
         </p>
     </div>
 </div>

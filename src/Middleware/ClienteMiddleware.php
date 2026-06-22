@@ -9,7 +9,7 @@ class ClienteMiddleware {
     public static function check() {
         if (!isset($_SESSION['cliente_id'])) {
             $_SESSION['redirect_after_login'] = $_SERVER['REQUEST_URI'];
-            header('Location: ' . URL_BASE . '/login');
+            header('Location: ' . URL_BASE . '/mi-cuenta/acceso');
             exit;
         }
     }

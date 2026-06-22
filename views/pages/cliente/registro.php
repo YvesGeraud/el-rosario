@@ -14,7 +14,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= URL_BASE ?>/registro" method="POST" class="auth-form">
+        <form action="<?= URL_BASE ?>/mi-cuenta/registro" method="POST" class="auth-form">
             <div class="form-row">
                 <div class="form-group">
                     <label for="nombre">Nombre completo *</label>
@@ -48,7 +48,7 @@
         </form>
 
         <p class="auth-switch">
-            ¿Ya tienes cuenta? <a href="<?= URL_BASE ?>/login">Inicia sesión</a>
+            ¿Ya tienes cuenta? <a href="<?= URL_BASE ?>/mi-cuenta/acceso">Inicia sesión</a>
         </p>
     </div>
 </div>
