@@ -84,6 +84,20 @@ class Producto {
     }
 
     /**
+     * Obtener un producto por su ID
+     */
+    public function findById($id) {
+        $sql = "SELECT p.*, c.nombre as categoria_nombre 
+                FROM ct_producto p
+                LEFT JOIN ct_categoria c ON p.id_ct_categoria = c.id_ct_categoria
+                WHERE p.id_ct_producto = :id AND p.estado = 1";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, \PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    /**
      * Obtener todas las imágenes de un producto
      */
     public function getImages($id) {

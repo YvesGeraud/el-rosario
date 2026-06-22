@@ -66,6 +66,49 @@
             </div>
         </div>
 
+        <!-- Envíos -->
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4 border-bottom pb-2">
+                        <i class="bi bi-truck me-2 text-primary"></i> Configuración de Envíos
+                    </h5>
+                    <?php foreach ($configuraciones as $conf): ?>
+                        <?php if (str_starts_with($conf['clave'], 'envio_')): ?>
+                            <div class="mb-3">
+                                <label for="<?= $conf['clave'] ?>" class="form-label fw-bold small text-muted text-uppercase"><?= $conf['descripcion'] ?></label>
+                                <input type="text" class="form-control bg-light border-0" id="<?= $conf['clave'] ?>"
+                                       name="config[<?= $conf['clave'] ?>]" value="<?= htmlspecialchars($conf['valor']) ?>">
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                    <div class="alert alert-info mt-3 border-0 small">
+                        <i class="bi bi-info-circle me-1"></i> Pon <strong>0</strong> en "Envío gratis desde" para desactivar el envío gratis.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos bancarios -->
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 h-100">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4 border-bottom pb-2">
+                        <i class="bi bi-bank2 me-2 text-primary"></i> Datos para Transferencia Bancaria
+                    </h5>
+                    <?php foreach ($configuraciones as $conf): ?>
+                        <?php if (str_starts_with($conf['clave'], 'banco_')): ?>
+                            <div class="mb-3">
+                                <label for="<?= $conf['clave'] ?>" class="form-label fw-bold small text-muted text-uppercase"><?= $conf['descripcion'] ?></label>
+                                <input type="text" class="form-control bg-light border-0" id="<?= $conf['clave'] ?>"
+                                       name="config[<?= $conf['clave'] ?>]" value="<?= htmlspecialchars($conf['valor']) ?>">
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+        </div>
+
         <div class="col-12 text-end mt-4">
             <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm">
                 <i class="bi bi-save me-2"></i> Guardar Cambios

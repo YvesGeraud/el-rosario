@@ -248,6 +248,22 @@
                     <i class="bi bi-envelope-paper-fill"></i> Mensajes
                 </a>
             </li>
+            <li>
+                <a class="nav-link <?= str_contains($_SERVER['REQUEST_URI'], 'pedidos') ? 'active' : '' ?>"
+                   href="<?= URL_BASE ?>/admin/pedidos">
+                    <i class="bi bi-bag-check-fill"></i> Pedidos
+                    <?php
+                        try {
+                            $pedCount = (new \App\Models\Pedido())->countByEstado('pendiente');
+                            if ($pedCount > 0):
+                    ?>
+                        <span class="badge bg-warning text-dark ms-auto rounded-pill" style="font-size:.65rem;"><?= $pedCount ?></span>
+                    <?php
+                            endif;
+                        } catch (\Exception $e) {}
+                    ?>
+                </a>
+            </li>
         </ul>
 
         <div class="sidebar-section-label">Sistema</div>
