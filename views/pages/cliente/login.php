@@ -2,7 +2,7 @@
     <div class="auth-card">
         <div class="auth-header">
             <a href="<?= URL_BASE ?>/" class="auth-logo">
-                <img src="<?= URL_BASE ?>/img/logo.jpg" alt="Blancos El Rosario">
+                <img src="<?= URL_BASE ?>/img/logo.jpeg" alt="Blancos El Rosario">
             </a>
             <h1>Bienvenido de vuelta</h1>
             <p>Inicia sesión para ver tus pedidos y comprar más rápido</p>
@@ -18,7 +18,7 @@
             <div class="form-group">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required
-                       value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             </div>
             <div class="form-group">
                 <label for="password">Contraseña</label>

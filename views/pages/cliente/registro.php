@@ -2,7 +2,7 @@
     <div class="auth-card">
         <div class="auth-header">
             <a href="<?= URL_BASE ?>/" class="auth-logo">
-                <img src="<?= URL_BASE ?>/img/logo.jpg" alt="Blancos El Rosario">
+                <img src="<?= URL_BASE ?>/img/logo.jpeg" alt="Blancos El Rosario">
             </a>
             <h1>Crear Cuenta</h1>
             <p>Únete y disfruta de una experiencia de compra completa</p>
@@ -19,18 +19,18 @@
                 <div class="form-group">
                     <label for="nombre">Nombre completo *</label>
                     <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required
-                           value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>">
+                        value="<?= htmlspecialchars($_POST['nombre'] ?? '') ?>">
                 </div>
                 <div class="form-group">
                     <label for="telefono">Teléfono</label>
                     <input type="tel" id="telefono" name="telefono" placeholder="10 dígitos"
-                           value="<?= htmlspecialchars($_POST['telefono'] ?? '') ?>">
+                        value="<?= htmlspecialchars($_POST['telefono'] ?? '') ?>">
                 </div>
             </div>
             <div class="form-group">
                 <label for="email">Correo electrónico *</label>
                 <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required
-                       value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
+                    value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             </div>
             <div class="form-row">
                 <div class="form-group">

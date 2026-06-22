@@ -18,7 +18,7 @@
         <div class="container">
             <a class="navbar-brand py-0" href="<?= URL_BASE ?>/">
                 <!-- Ajusta el valor de max-height para cambiar el tamaño del logo -->
-                <img src="<?= URL_BASE ?>/img/logo.jpg" alt="Blancos El Rosario"
+                <img src="<?= URL_BASE ?>/img/logo.jpeg" alt="Blancos El Rosario"
                     style="max-height: 90px; width: auto; object-fit: contain;">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -32,28 +32,37 @@
 
                     <!-- Carrito -->
                     <li class="nav-item ms-1">
-                        <a href="<?= URL_BASE ?>/carrito" class="nav-link cart-nav-icon position-relative" title="Mi carrito">
+                        <a href="<?= URL_BASE ?>/carrito" class="nav-link cart-nav-icon position-relative"
+                            title="Mi carrito">
                             <i class="bi bi-bag" style="font-size:1.25rem;"></i>
                             <?php
-                                use App\Models\Carrito;
-                                $cartCount = Carrito::countItems();
+                            use App\Models\Carrito;
+                            $cartCount = Carrito::countItems();
                             ?>
-                            <span class="cart-badge<?= $cartCount > 0 ? '' : ' d-none' ?>" id="nav-cart-badge"><?= $cartCount ?></span>
+                            <span class="cart-badge<?= $cartCount > 0 ? '' : ' d-none' ?>"
+                                id="nav-cart-badge"><?= $cartCount ?></span>
                         </a>
                     </li>
 
                     <!-- Cuenta de cliente -->
                     <?php if (isset($_SESSION['cliente_id'])): ?>
                         <li class="nav-item dropdown ms-1">
-                            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center gap-1" data-bs-toggle="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center gap-1"
+                                data-bs-toggle="dropdown">
                                 <div class="nav-avatar"><?= strtoupper(substr($_SESSION['cliente_nombre'], 0, 1)) ?></div>
-                                <span class="d-none d-lg-inline" style="font-size:.85rem;"><?= htmlspecialchars($_SESSION['cliente_nombre']) ?></span>
+                                <span class="d-none d-lg-inline"
+                                    style="font-size:.85rem;"><?= htmlspecialchars($_SESSION['cliente_nombre']) ?></span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3">
-                                <li><a class="dropdown-item small" href="<?= URL_BASE ?>/mi-cuenta"><i class="bi bi-person me-2"></i>Mi Cuenta</a></li>
-                                <li><a class="dropdown-item small" href="<?= URL_BASE ?>/mi-cuenta"><i class="bi bi-bag me-2"></i>Mis Pedidos</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item small text-danger" href="<?= URL_BASE ?>/logout-cliente"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item small" href="<?= URL_BASE ?>/mi-cuenta"><i
+                                            class="bi bi-person me-2"></i>Mi Cuenta</a></li>
+                                <li><a class="dropdown-item small" href="<?= URL_BASE ?>/mi-cuenta"><i
+                                            class="bi bi-bag me-2"></i>Mis Pedidos</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item small text-danger" href="<?= URL_BASE ?>/logout-cliente"><i
+                                            class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</a></li>
                             </ul>
                         </li>
                     <?php else: ?>
